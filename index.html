@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="ko">
 <!--공용속성 global attr , lang class id title style data-* -->
-<head>
-    <meta charset="UTF-8"><!--empty element, 빈요소 , html5 ver. 항상 맨위에 위치.-->
-    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge">설치된 최신브라우저 엔진으로 렌더링 한다 -->
-    <title>웹카페-HTML5, CSS3, 웹접근성</title>
-</head>
-<body>
+  <head>
+      <meta charset="UTF-8"><!--empty element, 빈요소 , html5 ver. 항상 맨위에 위치.-->
+      <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge">설치된 최신브라우저 엔진으로 렌더링 한다 -->
+      <title>웹카페-HTML5, CSS3, 웹접근성</title>
+      <link rel="stylesheet" href="css/style.css"> <!-- relation attr, -->
+  </head>
+  <body>
     <div class="container">
-        <header class="header">헤더</header>
-        <div class="visual">비주얼</div>
-        <main class="main-content">메인 콘텐츠</main>
-        <article class="slogan">슬로건</article>
+      <header class="header">헤더</header>
+      <div class="visual">비주얼</div>
+      <main class="main-content clearfix">
+        <div class="group group1">그룹1</div>
+        <div class="group group2">그룹2</div>
+        <div class="group group3">그룹3</div>
+      </main>
+      <article class="slogan">
+        <h2 class="slogan-heading">슬로건</h2>
+      </article>
+      <div class="footer-bg">
         <footer class="footer">푸터</footer>
+      </div>
     </div>
-</body>
+  </body>
 </html>
 
-<!-- 
-카멜케이스 mainContent
+<!-- 카멜케이스 mainContent
 파스칼케이스 MainContent
 언더스코어 main_content
-케밥케이스 main-content
+케밥케이스 main-content-->
 
- -->
+<!-- div.group.group$*3{그룹$} -->
