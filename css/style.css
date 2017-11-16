@@ -171,12 +171,18 @@ a.a11y:focus{
 }
 .main-menu > li {
     float: left;
-    line-height:45px;
+    position: relative; /*자식요소의 기준*/
 }
+
+.main-menu>li:focus {
+    outline:none;
+}
+
 .main-menu span {
     display:block;
     font-size:1.6rem;
     font-family:"Noto Sans Bold", sans-serif;
+    line-height:45px;
     color:#fff;/*상속됨*/
     padding: 0 20px;
     cursor: pointer;
@@ -188,13 +194,60 @@ a.a11y:focus{
         0 -1px 0 #181818;
 }
 
+.main-menu span:hover::after, .main-menu > li:focus span::after {
+    content:"";
+    display:block;
+    border-top:2px solid #333;
+    margin-top:-1px;
+}
+
 .main-menu span:hover, .main-menu > li:focus span {
     color:gold;
 }
+
 .sub-menu {
-    display:none;
-    background: gold;
     position: absolute;/* 높이를 잃음 */
+    top:45px;
+    white-space: nowrap; /*공백문자 처리속성, 줄바꿈안됨 무조건 한줄로 표현*/
+    display:none;
+}
+.menu-act {
+    display:block !important;
+}
+.about-html {
+    left:0;
+}
+.about-css {
+    left:0;
+}
+.web-standards {
+    left:0;
+}
+.web-accessibility {
+    right:0;
+}
+.qna {
+    right:0;
+}
+.archive {
+    right:0;
+}
+
+.sub-menu > li,
+.sub-menu a {
+    display:inline-block;/*형태는 인라인, 속성은 블록*/
+}
+.sub-menu a {
+    padding:4px 10px 4px 0;
+}
+.sub-menu a::before {
+    content: '\e803';
+    font-family:"fontello";
+    margin-right:5px;
+    font-size:1.2rem;
+}
+.sub-menu a:hover::before {
+    content: '\e801';
 }
 .visual {
     background-color: pink;
