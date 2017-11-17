@@ -98,8 +98,21 @@ a.a11y:focus{
 
 /* 레이아웃 설계 */
 .container {
-    background-color: #eee;
-    height:100vh;
+    /* 먼저 선언된 배경이미지가 위로 올라옴 */
+    /* background-image:
+        url('./images/bg_flower.png'),
+        linear-gradient(to bottom, #aaa 0%, #333 50%, #fff 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: 50% 0, 0 0; */
+    /* multi background offset
+    x축 y축
+    픽셀방식(px) 요소박스기준만
+    백분율방식(%) 요소박스와 이미지사이즈 체크
+    키워드(top,right,bottom,left,center)
+    */
+    background: url("./images/bg_flower.png") no-repeat 50% 0 fixed,
+    linear-gradient(to bottom, #aaa 0%, #333 50%, #fff 100%) fixed;
+    
 }
 
 .header, .visual, .main-content, .slogan, .footer {
@@ -134,7 +147,7 @@ a.a11y:focus{
 }
 
 .member li{
-    display:inline-block; /*ie8이상*/
+    display:inline-block; /*ie8이상지원*/
     font-size:1.4rem;/*해당콘텐츠 글자크기 재정의*/
     padding:10px 0;
 }
@@ -194,14 +207,16 @@ a.a11y:focus{
         0 -1px 0 #181818;
 }
 
-.main-menu span:hover::after, .main-menu > li:focus span::after {
+.main-menu span:hover::after, 
+.main-menu > li:focus span::after,
+.main-menu > li:hover span::after {
     content:"";
     display:block;
     border-top:2px solid #333;
     margin-top:-1px;
 }
 
-.main-menu span:hover, .main-menu > li:focus span {
+.main-menu li:hover span, .main-menu > li:focus span {
     color:gold;
 }
 
@@ -249,12 +264,113 @@ a.a11y:focus{
 .sub-menu a:hover::before {
     content: '\e801';
 }
+
+/* 메인콘텐츠 */
+
+/* 비주얼 */
+
+/* 애니메이션 선언 */
+@keyframes text-ani {
+    /* from {}
+    to {} */
+    0% {
+        font-size: 12px;
+        /* opacity:0.2; color:rgba(0,0,0,0); */
+        transform: translate(0,0);
+        /* top:0;left:0; */
+    }
+    100% {
+        font-size: 24px;
+        opacity:0.9;
+        /* opacity:0.2; 텍스트를 감싸고있는 박스와 텍스트 모두 투명도 영향*/
+        color:rgba(0, 0, 0, 1); /*a채널은 텍스트자체의 투명도만 조절*/
+        transform: translate(400px, 75px); /*position을 사용해서 offset값으로 위치시키는 것 보다 성능면에서 우수한 방법*/
+        /* top:70px;left:100px; */
+    }
+}
 .visual {
-    background-color: pink;
-    height:110px;
+    height:120px;
+    position: relative;
+}
+.visual::before, .visual::after {
+    content:""; /*content가 없다면 영역이 만들어지지 않는다.content:""을 주면 인라인속성으로 가상요소가 생성됨*/
+    position: absolute; /*레이어가 됨*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /*부모요소와 동일한 사이즈의 투명 셀로판지가 두개 생겼다.::before, ::after 한장씩*/
+    animation: flower-ani 2s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes flower-ani {
+    /* from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    } */
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+
+}
+.visual::before {
+    background: 
+        url("./images/ani_flower_01.png") no-repeat 0 -13px,
+        url("./images/ani_flower_02.png") no-repeat 670px 10px;
+
+}
+.visual::after {
+    background: 
+        url("./images/ani_flower_03.png") no-repeat 300px 0px, 
+        url("./images/ani_flower_04.png") no-repeat 800px 10px;
+    animation-delay: 1s;
+}
+.visual-text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* animation-name: text-ani;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; defalut value:backwords
+    animation-iteration-count:infinite; */
+    animation: text-ani 2s forwards ease-in-out;
+
+    /*animation-direction: alternate-reverse;  출발은 normal 돌아올땐 reverse*/
+    /*animation-timing-function: steps(10); 자연스러운 애니메이션을 위해 프레임을 10개 구성*/
+    /* animation-play-state: paused; 버튼 클릭 시 애니메이션 멈춤 기능 추가할 때 */
+
+    /*display:inline-block;*/ /*단일로 사용한다면 괜찮지만 가상요소를 넣으면 문제야기*/
+    /* float:left; 부모요소에 높이값을 주었기때문에 사용할 수 있다. */
+    position:absolute; /*블록요소를 글자사이즈대로 영역을 줄일려고*/
+    /* 특히 모바일버전에서 포지션으로 애니메이션을 주면 리페인팅이 되기때문에 성능이 떨어짐 */
+
+
+}
+.box {
+    width: 100px;
+    height:100px;
+    background-color: lime;
+    border: 2px solid #333;
+    /* animation 시작점에 부여 */
+    /* transition-property: border-radius, background-color; 
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0s, 0.3s; optional value
+    transition-timing-function: ease-in-out; */
+    transition: all 0.3s ease-in-out;
+}
+/* .box:hover {
+    border-radius: 50%;
+    background-color:aqua;
+} */
+.box-act {
+    border-radius: 50%;
+    background-color:aqua;
 }
 .main-content {
-    background-color: blue;
+    /* background-color: blue; */
     padding:0px 15px;
     min-height:400px;
     /* height:60vh;
