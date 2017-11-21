@@ -487,7 +487,7 @@ a.a11y:focus{
     border-radius:15px;
     background: 
         url("./images/validation_icon.png") no-repeat 13px 6px,
-        #ccc linear-gradient(to bottom, #ccc, #eee);
+            linear-gradient(to bottom, #ccc, #eee);
     margin-bottom:10px;
 }
 
@@ -519,6 +519,196 @@ a.a11y:focus{
 }
 .term-list-brief {
     margin-top:5px;
+    line-height:1.5;
+    word-break: break-all;
+}
+/* .term-list dt:nth-of-type(2n+2),
+.term-list dd:nth-of-type(4n+4)
+{
+    background-color:gold;
+    float:right;
+}
+.term-list dd:nth-of-type(4n+3):nth-child(odd) {
+    background: red;
+    float:left;
+} */
+/* 
+nth-of-type 같은 element 중에서 순서를 찾는다
+nth-child 같은 형제레벨의 element에서 순서를 찾는다
+ */
+
+/* 검색 */
+.search{
+    /* background: gold; */
+    padding:20px 25px 10px;
+    border-top:1px solid #aaa;
+    border-left:1px solid #aaa;
+    border-right:1px solid #aaa;
+    border-radius:20px 20px 0 0;
+    background: #ccc linear-gradient(to bottom, #ccc, #eee);
+}
+.search-form label {
+    width:70px;
+}
+.search-form label::before { 
+    content: '\e800';
+    font-family: "fontello";
+}
+.search-form input[type="search"] {
+    width:calc(100% - 135px);  /*반드시 -부호 앞뒤로 공백이 존재해야 함*/
+    padding:3px 5px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+}
+
+.btn-search {
+    width:50px;
+    border:1px solid #aaa;
+    border-radius: 4px;
+    background: #333 linear-gradient(to bottom, #333, #ccc);
+    color:#fff;
+    line-height:24px;
+}
+
+/* 게시판 */
+/* .board{
+    position: relative;
+    margin-top:20px;
+}
+.board-act{
+    display:block;
+}
+.notice, .pds {
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+  .notice-list, .pds-list{
+    background: #fff;
+    margin-top:10px;
+  }
+  .notice-heading, .pds-heading{
+    display:inline-block;
+    padding:5px 10px;
+    background: #ccc linear-gradient(to bottom, #ccc, #eee);
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    border-radius:5px 5px 0 0;
+  }
+  .tab-act{
+    border-top: 1px solid orangered;
+    border-left: 1px solid orangered;
+    border-right: 1px solid orangered;
+    background: #ffffff;
+    color:orangered;
+  }
+  .notice-list li, .pds-list li{
+    position: relative;
+    top:0;
+    left:0;
+  }
+  .notice-list li:before, .pds-list li:before{
+    content:"*";
+    font-family: "fontello";
+  }
+  .notice-list a, .notice-list time{
+    vertical-align: middle;
+  }
+  .notice-list a{
+    display: inline-block;
+    width:75%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .notice-list time,
+  .pds-list time {
+    position: absolute;
+    top:0;
+    right:0;
+    background:red;
+  }
+  .pds-heading {
+    margin-left:73px;
+  }
+  .notice-list, .notice-more{
+    display:none;
+  }  
+  .pds-list, .pds-more{ display:none;}
+  .notice-more, .pds-more{
+    position: absolute;
+    top:10px;
+    right:0;
+  }
+  .notice-more::before, .pds-more::before {
+    content:"\e802";
+    font-family: "fontello";
+    margin-right:3px;
+  } */
+.board{
+    margin-top:20px;
+    position: relative;
+}
+.notice {
+    padding-top:20px;
+}
+.notice-list, .pds-list {
+    padding:20px 0 0 20px;
+}
+.notice-list li, .pds-list li {
+    list-style: square;
+}
+.notice-list a, .pds-list a { 
+    display:inline-block;
+    width:285px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.notice-list time, .pds-list time {
+    float: right;
+}
+.notice-more, .pds-more {
+    position: absolute;
+    top:0;
+    right:0;
+}
+.notice-more::before, .pds-more::before {
+    content: '\e802';
+    font-family: "fontello";
+    color:#ed802d;
+    font-size:1rem;
+    margin-top:5px;
+    margin-right:5px;
+}
+.notice-list, .pds-list, .notice-more, .pds-more {
+    display:none;
+}
+.board-act ul, .board-act > a {
+    display:block;
+}
+.notice-heading, .pds-heading {
+    position: absolute;
+    top:0;
+    background: #ccc linear-gradient(to bottom, #ccc, #eee);
+    border:1px solid #aaa;
+    border-radius: 5px 5px 0 0;
+    padding:5px 15px;
+    cursor: pointer;
+}
+.board-act .notice-heading, .board-act .pds-heading {
+    background: #fff;
+    color:#ed802d;
+    border-color:#ed802d;
+    border-bottom:0;
+}
+.notice-heading {
+    left:0;
+}
+.pds-heading {
+    left:87px;
 }
 
 
