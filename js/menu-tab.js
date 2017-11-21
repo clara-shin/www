@@ -38,7 +38,7 @@ $(document).ready(function(){
 	// });
 
 	//탭메뉴
-	tab.on('click', function(){
+	tab.on('click focusin', function(){
 		$(this).parent().addClass('board-act').siblings().removeClass('board-act');
 	});
 

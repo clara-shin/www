@@ -672,8 +672,9 @@ nth-child 같은 형제레벨의 element에서 순서를 찾는다
 }
 .notice-more, .pds-more {
     position: absolute;
-    top:0;
-    right:0;
+    top:-8px;
+    right:-8px;
+    padding:8px;
 }
 .notice-more::before, .pds-more::before {
     content: '\e802';
