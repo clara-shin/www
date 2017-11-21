@@ -34,3 +34,10 @@
     url('font/woff/NotoSansKR-Bold-Hestia.woff') format('woff'),
     url('font/otf/NotoSansKR-Bold-Hestia.otf') format('opentype');
 }
+
+.icon-search:before { content: '\e800'; } /* '' */
+.icon-ok:before { content: '\e801'; } /* '' */
+.icon-plus:before { content: '\e802'; } /* '' */
+.icon-minus:before { content: '\e803'; } /* '' */
+.icon-right-open:before { content: '\e804'; } /* '' */
+.icon-circle:before { content: '\f111'; } /* '' */
