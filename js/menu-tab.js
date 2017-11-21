@@ -22,11 +22,12 @@
 
 $(document).ready(function(){
 	var menu = $('.main-menu > li');
+	var tab = $('.notice-heading, .pds-heading');
 
+	//메인메뉴
 	menu.hover(function(){
 		$(this).find('.sub-menu').toggleClass('menu-act');
 	});
-
 	menu.focusin(function(){
 		$(this).siblings().find('.sub-menu').removeClass('menu-act'); //reset
 		$(this).find('.sub-menu').addClass('menu-act');
@@ -36,6 +37,12 @@ $(document).ready(function(){
 	// 	$(this).toggleClass('box-act');
 	// });
 
+	//탭메뉴
+	tab.on('click', function(){
+		$(this).parent().addClass('board-act').siblings().removeClass('board-act');
+	});
+
+	
 	
 });//jQuery end
 
