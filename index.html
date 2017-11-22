@@ -209,106 +209,35 @@
             </a>
             <a href="#" class="news-more" aria-labelledby="news-heading">더보기</a>
           </div>
-<style>
-  .news{
-    position: relative;
-    margin-top:20px;
-    /* background: gold; */
-  }
-  .news-heading {
-    font-size:1.5rem;
-    color:orangered;
-    font-family: "Noto Sans Bold", sans-serif;
-  }
-  .news-heading+a{ 
-    display: block;
-    /* background: pink; */
-  }
-  .news-heading+a:hover,.news-heading+a:focus{
-    color:inherit;
-  }
-  /*
-  인접형제선택자(+), 형제레벨에 가장 가까운 태그 선택
-  틸드(~). 같은 형제레벨 태그 모두 다 선택
-  */
-  .news-heading::before{
-    content:"";
-    display:block;
-    width:80%;
-    height:2px;
-    background:#aaa linear-gradient(to right, #aaa, #fff);
-    position: absolute;
-    top:30px;
-    left:0;
-  }
-  .news-item{
-    position: relative;
-    top:0;
-    left:0;
-    margin-top:25px;
-    min-height: 115px;
-    padding-left:130px;
-    /* background: lime; */
-  }
-  .news-item::after{
-    content:'';
-    display:block;
-    clear: both;
-  }
-  .news-item h3 {
-    font-family: "Noto Sans Bold", sans-serif;
-    text-indent:10px;
-    position: relative;
-  }
-  .news-item h3::before{
-    content:"";
-    display:block;
-    width:4px;
-    height:5px;
-    position: absolute;
-    margin-top:9px;
-    background: #333; 
-  }
-  .news-item time{ /*display:inline(default)*/
-    display:block;
-    margin-top:5px;
-    padding-left:10px;
-  }
-  .news-item p{
-    padding-left:10px;
-  }
-  .news-item figure {
-    width:115px;
-    position: absolute;
-    top:6px;
-    left:4px;
-    /* background: rebec  capurple; */
-  }
-  .news-item figure img{
-    margin-bottom:15px;
-    box-shadow: 0 15px 15px 2px #aaa;
-  }
-  .news-item figure figcaption {
-    text-align:center;
-  }
-  .news-more {
-    position: absolute;
-    top:-8px;
-    right:-8px;
-    padding:8px;
-    /* background: goldenrod; */
-  }
-  .news-more::before{
-    content: '\e802';
-    font-family: "fontello";
-    margin-right:3px;
-    font-size:1rem;
-    color:green;
-  }
-
-</style>
         </div><!--group group2-->
-        <div class="group group3">그룹3</div>
+        <div class="group group3">
+
+          <div class="event-related">
+            <div class="event">
+              <h2 class="event-heading">신규 <span>이벤트</span></h2>
+              <div id="event-detail">
+                <p>
+                  <img src="./images/free_gift.gif" alt="이벤트 경품: 웹표준 핵심 가이드북2 도서 증정">
+                </p>
+                <p><em>웹표준 핵심 가이드북 2 출시!</em> 선착순 500명 한정으로 증정.</p>
+              </div>
+              <div class="btn-event">
+                <button type="button" class="btn-event-prev">이전 이벤트 보기</button>
+                <button type="button" class="btn-event-next">다음 이벤트 보기</button>
+              </div>
+            </div>
+            <div class="related">
+              <h2 class="related-heading">관련 <span>사이트</span></h2>
+              <ul>
+                <li><a href="#">멀티캠퍼스</a></li>
+                <li><a href="#">W3C</a></li>
+                <li><a href="#">웹접근성 연구소</a></li>
+                <li><a href="#">CSS ZenGarden</a></li>
+                <li><a href="https://cafe.naver.com/webcafe2010">네이버카페</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!--group group3-->
       </main>
       <article class="slogan">
         <h2 class="slogan-heading">슬로건</h2>
