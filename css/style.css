@@ -765,15 +765,6 @@ nth-child 같은 형제레벨의 element에서 순서를 찾는다
     right:10px;
     background: gold;
   }
-  .btn-event-prev, .btn-event-next {
-    background:url("./images/back_forward.png") no-repeat;
-  }
-  .btn-event-prev{
-    background-position: 0 0;
-  }
-  .btn-event-next{
-    background-position: 0 0;
-  }
 
 /* 슬로건 */
 .slogan {
