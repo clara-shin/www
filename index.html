@@ -194,6 +194,119 @@
             </div><!--pds-->
 
           </div><!--board-->
+          <div class="news">
+            <h2 class="news-heading" id="news-heading">새소식</h2>
+            <a href="#">
+              <article class="news-item">
+                <h3 class="news-item-heading">W3C사이트가 리뉴얼 되었습니다.</h3>
+                <time datetime="2017-11-22T11:35:21">2017.11.22</time>
+                <p>디자인 및 다양한 view 환경을 고려하여 구성되어 있으며, 기존보다 최신 정보 및 개발자를 위한 기술 가이드도 찾기 쉽도록 구성되어 있습니다.</p>
+                <figure>
+                  <img src="./images/news.gif" alt="HTML5를 발표하면서 새롭게 리뉴얼 된 W3C 공식 웹사이트">
+                  <figcaption>W3C 리뉴얼</figcaption>
+                </figure>
+              </article>
+            </a>
+            <a href="#" class="news-more" aria-labelledby="news-heading">더보기</a>
+          </div>
+<style>
+  .news{
+    position: relative;
+    margin-top:20px;
+    /* background: gold; */
+  }
+  .news-heading {
+    font-size:1.5rem;
+    color:orangered;
+    font-family: "Noto Sans Bold", sans-serif;
+  }
+  .news-heading+a{ 
+    display: block;
+    /* background: pink; */
+  }
+  .news-heading+a:hover,.news-heading+a:focus{
+    color:inherit;
+  }
+  /*
+  인접형제선택자(+), 형제레벨에 가장 가까운 태그 선택
+  틸드(~). 같은 형제레벨 태그 모두 다 선택
+  */
+  .news-heading::before{
+    content:"";
+    display:block;
+    width:80%;
+    height:2px;
+    background:#aaa linear-gradient(to right, #aaa, #fff);
+    position: absolute;
+    top:30px;
+    left:0;
+  }
+  .news-item{
+    position: relative;
+    top:0;
+    left:0;
+    margin-top:25px;
+    min-height: 115px;
+    padding-left:130px;
+    /* background: lime; */
+  }
+  .news-item::after{
+    content:'';
+    display:block;
+    clear: both;
+  }
+  .news-item h3 {
+    font-family: "Noto Sans Bold", sans-serif;
+    text-indent:10px;
+    position: relative;
+  }
+  .news-item h3::before{
+    content:"";
+    display:block;
+    width:4px;
+    height:5px;
+    position: absolute;
+    margin-top:9px;
+    background: #333; 
+  }
+  .news-item time{ /*display:inline(default)*/
+    display:block;
+    margin-top:5px;
+    padding-left:10px;
+  }
+  .news-item p{
+    padding-left:10px;
+  }
+  .news-item figure {
+    width:115px;
+    position: absolute;
+    top:6px;
+    left:4px;
+    /* background: rebec  capurple; */
+  }
+  .news-item figure img{
+    margin-bottom:15px;
+    box-shadow: 0 15px 15px 2px #aaa;
+  }
+  .news-item figure figcaption {
+    text-align:center;
+  }
+  .news-more {
+    position: absolute;
+    top:-8px;
+    right:-8px;
+    padding:8px;
+    /* background: goldenrod; */
+  }
+  .news-more::before{
+    content: '\e802';
+    font-family: "fontello";
+    margin-right:3px;
+    font-size:1rem;
+    color:green;
+  }
+
+</style>
         </div><!--group group2-->
         <div class="group group3">그룹3</div>
       </main>

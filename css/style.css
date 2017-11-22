@@ -570,83 +570,7 @@ nth-child 같은 형제레벨의 element에서 순서를 찾는다
     line-height:24px;
 }
 
-/* 게시판 */
-/* .board{
-    position: relative;
-    margin-top:20px;
-}
-.board-act{
-    display:block;
-}
-.notice, .pds {
-    width:100%;
-    position:absolute;
-    top:0;
-    left:0;
-}
-  .notice-list, .pds-list{
-    background: #fff;
-    margin-top:10px;
-  }
-  .notice-heading, .pds-heading{
-    display:inline-block;
-    padding:5px 10px;
-    background: #ccc linear-gradient(to bottom, #ccc, #eee);
-    border-top: 1px solid #aaa;
-    border-left: 1px solid #aaa;
-    border-right: 1px solid #aaa;
-    border-radius:5px 5px 0 0;
-  }
-  .tab-act{
-    border-top: 1px solid orangered;
-    border-left: 1px solid orangered;
-    border-right: 1px solid orangered;
-    background: #ffffff;
-    color:orangered;
-  }
-  .notice-list li, .pds-list li{
-    position: relative;
-    top:0;
-    left:0;
-  }
-  .notice-list li:before, .pds-list li:before{
-    content:"*";
-    font-family: "fontello";
-  }
-  .notice-list a, .notice-list time{
-    vertical-align: middle;
-  }
-  .notice-list a{
-    display: inline-block;
-    width:75%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .notice-list time,
-  .pds-list time {
-    position: absolute;
-    top:0;
-    right:0;
-    background:red;
-  }
-  .pds-heading {
-    margin-left:73px;
-  }
-  .notice-list, .notice-more{
-    display:none;
-  }  
-  .pds-list, .pds-more{ display:none;}
-  .notice-more, .pds-more{
-    position: absolute;
-    top:10px;
-    right:0;
-  }
-  .notice-more::before, .pds-more::before {
-    content:"\e802";
-    font-family: "fontello";
-    margin-right:3px;
-  } */
+/* 공지사항 및 자료실 */
 .board{
     margin-top:20px;
     position: relative;
@@ -659,7 +583,13 @@ nth-child 같은 형제레벨의 element에서 순서를 찾는다
 }
 .notice-list li, .pds-list li {
     list-style: square;
+    margin:5px 0;
 }
+/* .notice-list li::before, .pds-list li::before {
+    content: '\f111';
+    font-family: "fontello";
+    font-size:1rem;
+} */
 .notice-list a, .pds-list a { 
     display:inline-block;
     width:285px;
@@ -703,13 +633,13 @@ nth-child 같은 형제레벨의 element에서 순서를 찾는다
     background: #fff;
     color:#ed802d;
     border-color:#ed802d;
-    border-bottom:0;
+    border-bottom:1px solid #fff;
 }
 .notice-heading {
     left:0;
 }
 .pds-heading {
-    left:87px;
+    left:83px;
 }
 
 
