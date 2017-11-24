@@ -111,8 +111,10 @@ a.a11y:focus{
     백분율방식(%) 요소박스와 이미지사이즈 체크
     키워드(top,right,bottom,left,center)
     */
-    background: url("./images/bg_flower.png") no-repeat 50% 0 fixed,
-    linear-gradient(to bottom, #aaa 0%, #333 50%, #fff 100%) fixed;
+    /* background: url("./images/bg_flower.png") no-repeat 50% 0 fixed,
+    linear-gradient(to bottom, #aaa 0%, #333 50%, #fff 100%) fixed; */
+    background: url(./images/bg_flower.png) no-repeat 50% 0 fixed, 
+    linear-gradient(to bottom, #ccc, #eee, #fff 60%) fixed;
     
 }
 
@@ -701,7 +703,7 @@ nth-child 같은 형제레벨의 element에서 순서를 찾는다
     background: #333; 
   }
   .news-item time{ 
-    display:block; inline(default)
+    display:block; /*inline(default)*/
     margin-top:5px;
     padding-left:10px;
   }
@@ -737,20 +739,24 @@ nth-child 같은 형제레벨의 element에서 순서를 찾는다
     font-size:1rem;
     color:green;
   }
-/* 이벤트 */
-  .event {
+
+/* 신규 이벤트 */
+.event-related{
+    /* background: gold; */
     background:#ccc linear-gradient(to top, #ccc, #fff);
     border:1px solid #aaa;
     border-radius: 4px;
     padding:10px;
+}
+  .event {
     position: relative;
   }
-  .event-heading{
+  .event-heading, .related-heading, .favorite-heading{
     font-family: "Noto Sans Bold", sans-serif;
     font-size:1.5rem;
     color:#181818;
   }
-  .event-heading span{
+  .event-heading span, .related-heading span, .favorite-heading span{
     color:orangered;
   }
   .event-heading+div{
@@ -758,26 +764,234 @@ nth-child 같은 형제레벨의 element에서 순서를 찾는다
   }
   .event-heading+div img{
     border:1px solid #aaa;
+    box-shadow: 5px 5px 5px #aaa;
+    margin-bottom:10px;
   }
   .btn-event{
     position: absolute;
-    top:10px;
-    right:10px;
-    background: gold;
+    top:5px;
+    right:0px;
   }
+  .btn-event-prev, .btn-event-next{
+    width:19px;
+    height:18px;
+    background-image: url("./images/back_forward.png");
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;    
+    cursor: pointer;
+  }
+  .btn-event-prev:focus, .btn-event-next:focus{
+    outline:1px dashed #aaa;
+  }
+  .btn-event-next{
+      background-position: -36px 0px;
+  }
+  .related{
+    margin-top:10px;
+    border-top:1px solid #aaa;
+    padding-top:10px;
+  }
+  .related-list{
+    margin-top:10px;
+    border:1px solid #aaa;
+    border-radius: 4px;
+    background: #fff;
+    height:35px;
+    overflow: hidden;
+    /* transition: height 0.3s; */
+  }
+  .list-open{
+      height: 176px;
+  }
+  .related-list a{
+    display:block;
+    height:35px;
+    line-height: 35px;
+    padding-left:15px;
+  }
+
+
+/* 인기사이트 */
+.favorite{
+    position: relative;
+    background:#ccc linear-gradient(to top, #ccc, #fff 70%);
+    border:1px solid #aaa;
+    border-radius: 4px;
+    padding:10px;
+    margin-top:20px;
+}
+.favorite-list{
+    margin-top:10px;
+}
+.favorite-list li{
+    position: relative;
+    margin-bottom:3px;
+    line-height:20px;
+    overflow: hidden;
+    padding-left:25px;
+    counter-increment:number; /**/
+}
+.favorite-list li:before{
+    content:counter(number, decimal); /**/
+    display:block;
+    width:20px;
+    height:20px;
+    line-height:20px;
+    text-align:center;
+    position: absolute; top:0; left:0;
+    background: #999999;
+    border-radius:2px;
+    color:#fff;
+
+}
+.favorite-list em{
+    background-image: url("./images/rank.png");
+    background-repeat: no-repeat;
+
+    position:absolute;top:0;right:0;
+    width:9px;height:11px;
+    padding-top:11px;
+    overflow: hidden;
+
+    transform:translateY(-50%);
+}
+.favorite li .up{
+    background-position: 0 0%;
+}
+.favorite li .down{
+background-position: 0 50%;
+}
+.favorite li .stop{
+background-position: 0 100%;
+}
+
+
+.favorite-more{
+    position: absolute;
+    top:2px;
+    right:2px;
+    padding:8px;
+}
+/* .favorite-more::before{
+    content: '\e802';
+    font-family: "fontello";
+    margin-right:3px;
+    font-size:1rem;
+    color:green;
+} */
+
+[class$="more"]::before{
+    content: '\e802';
+    font-family: "fontello";
+    margin-right:3px;
+    font-size:1rem;
+    color:green;
+}
+
 
 /* 슬로건 */
 .slogan {
-    background-color: orange;
-    padding:15px 0;
+    background:#fff;
+    position: relative;
     /*clear:both; 강제로margin 추가기법, float된 엘리먼트의 높이만큼 마진이 추가됨*/
 }
+.slogan-heading{
+    /* background: gold; */
+    width:110px;
+    height:83px;
+    padding:30px;
+    position: absolute;
+    bottom:-25px;
+    left:25px;
+}
+.slogan-heading::after{
+    content:"";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%; /*부모요쇼의 position이 static아니므로 position:absolute인 영역안에서 자식요소의 position:absolute의 영역이 잡힌다.*/
+    background: url("./images/coffee.png") no-repeat;
 
+}
+.slogan-content{
+    padding:15px 100px 15px 185px;
+    color:#a09874;
+}
+.slogan-content q{
+    font-weight:bold;
+    /* quotes: "<<" ">>"; */
+}
+.slogan-content q::before{
+    font-size:3rem;
+    position: relative;
+    top:10px;
+}
+.slogan-content q::after{
+    content:"";
+}
 /* 푸터 */
 .footer-bg {
-    background-color: purple;
+    background: #ccc linear-gradient(to bottom, #ccc, #eee 30%, #fff 60%);
 }
+
 .footer {
-    background-color: skyblue;
-    padding:15px 0;
+    /* background: repeating-linear-gradient(45deg,red, red 10px, rgb(221, 109, 57) 10px, rgb(221, 109, 57) 20px); */
+    padding:15px 0px;
+    position: relative;
+}
+
+/* 푸터로고 및 뱃지 */
+.footer-logo{
+    position: absolute;
+    top:40px;
+    left:30px;
+}
+.footer-logo a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.tech-logo{
+    position: absolute;
+    top:15px;
+    right:0;
+}
+
+/* 가이드 */
+.guide{
+    font-size:0;
+    margin-top: 5px;
+    margin-left: 160px;
+
+}
+.guide li{
+    display:inline-block;
+}
+
+.guide li a{
+    display:inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-size:1.4rem;
+    color:#fff;
+    font-weight:normal;
+    text-transform: uppercase;
+    padding: 0px 20px;
+    background: #7B8385;
+}
+
+.guide li:first-child a{
+    border-radius: 20px 0 0 20px;
+}
+.guide li:last-child a{
+    border-radius: 0 20px 20px 0;
+}
+.footer address, .copyright{
+    margin-left:160px;
+    margin-top:10px;
+}
+.footer address span{
+    margin-right:10px;
 }
